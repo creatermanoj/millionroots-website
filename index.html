@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Million Roots Foundation — #MissionMillion</title>
+  <meta name="description" content="Planting 1 million native trees across Andhra Pradesh. Join #MissionMillion — a tribute to 35 years of agricultural service." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #F5EDD8;
+      color: #2C1A0E;
+      overflow-x: hidden;
+    }
+
+    /* ── BRAND TOKENS ───────────────────────────── */
+    :root {
+      --soil:    #2C1A0E;
+      --bark:    #4A2E1A;
+      --moss:    #3D5A2E;
+      --leaf:    #5C7A3E;
+      --sage:    #7A9A5C;
+      --fern:    #A8C080;
+      --sun:     #E8C87A;
+      --cream:   #F5EDD8;
+      --cream2:  #EDE3CC;
+    }
+
+    /* ── NAV ────────────────────────────────────── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 2.5rem;
+      background: rgba(44, 26, 14, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(232, 200, 122, 0.15);
+      transition: padding 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--leaf), var(--fern));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+    .nav-logo-text {
+      font-family: 'DM Serif Display', serif;
+      color: var(--cream);
+      font-size: 1.1rem;
+      line-height: 1.1;
+    }
+    .nav-logo-text span {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      color: var(--fern);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex; gap: 2rem; list-style: none;
+    }
+    .nav-links a {
+      color: rgba(245, 237, 216, 0.75);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--sun); }
+    .nav-cta {
+      background: var(--leaf);
+      color: var(--cream) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--moss) !important; color: var(--cream) !important; }
+    .nav-hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { width: 24px; height: 2px; background: var(--cream); border-radius: 2px; transition: 0.3s; }
+
+    /* ── HERO ────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--soil);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+      padding: 8rem 2rem 4rem;
+      text-align: center;
+    }
+    /* Decorative tree silhouettes */
+    .hero-trees {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      pointer-events: none;
+    }
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(92,122,62,0.18) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -55%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-block;
+      background: rgba(168, 192, 128, 0.15);
+      border: 1px solid rgba(168, 192, 128, 0.35);
+      color: var(--fern);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      margin-bottom: 1.8rem;
+    }
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      color: var(--cream);
+      line-height: 1.1;
+      max-width: 800px;
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--sun);
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: rgba(245, 237, 216, 0.65);
+      max-width: 540px;
+      line-height: 1.7;
+      margin: 1.2rem auto 2.5rem;
+      font-weight: 300;
+    }
+    .hero-buttons {
+      display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--leaf);
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: none; cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--moss); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid rgba(245,237,216,0.35);
+      cursor: pointer;
+      transition: border-color 0.25s, color 0.25s;
+      display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--sun); color: var(--sun); }
+    .hero-scroll {
+      position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+      color: rgba(245,237,216,0.4);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg { opacity: 0.4; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Tree SVG decorations */
+    .tree-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    /* ── STATS BAR ───────────────────────────────── */
+    .stats {
+      background: var(--bark);
+      padding: 3rem 2rem;
+    }
+    .stats-inner {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1rem; text-align: center;
+    }
+    .stat-item { padding: 1rem; }
+    .stat-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      color: var(--sun);
+      line-height: 1;
+      display: block;
+    }
+    .stat-label {
+      color: rgba(245,237,216,0.65);
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 0.4rem;
+      display: block;
+    }
+    .stat-divider {
+      width: 1px; background: rgba(245,237,216,0.15);
+      margin: auto;
+    }
+
+    /* ── SECTION COMMON ─────────────────────────── */
+    section { padding: 5rem 2rem; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(92,122,62,0.12);
+      border: 1px solid rgba(92,122,62,0.3);
+      color: var(--leaf);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.2rem;
+    }
+    .section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--soil);
+      line-height: 1.15;
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+    }
+    .section-body {
+      color: var(--bark);
+      font-size: 1.05rem;
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto;
+      font-weight: 300;
+    }
+
+    /* ── FATHER'S STORY ──────────────────────────── */
+    .story { background: var(--cream); }
+    .story-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 4rem; align-items: center;
+    }
+    .story-photo-wrap {
+      position: relative;
+    }
+    .story-photo {
+      width: 100%; aspect-ratio: 4/5;
+      background: linear-gradient(145deg, var(--bark), var(--moss));
+      border-radius: 1.5rem;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 1rem;
+      position: relative; overflow: hidden;
+    }
+    .story-photo::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .story-photo-icon { font-size: 4rem; opacity: 0.5; }
+    .story-photo-hint {
+      color: rgba(245,237,216,0.5);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-align: center;
+      padding: 0 2rem;
+    }
+    .story-badge {
+      position: absolute; bottom: -1rem; right: -1rem;
+      background: var(--sun);
+      border-radius: 1rem;
+      padding: 0.9rem 1.2rem;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(44,26,14,0.2);
+    }
+    .story-badge-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      color: var(--soil);
+      display: block;
+      line-height: 1;
+    }
+    .story-badge-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--bark);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .story-content { padding: 1rem 0; }
+    .story-content blockquote {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      color: var(--soil);
+      line-height: 1.45;
+      font-style: italic;
+      margin: 1.5rem 0;
+      padding-left: 1.5rem;
+      border-left: 3px solid var(--fern);
+    }
+    .story-content p {
+      color: var(--bark);
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-weight: 300;
+    }
+    .story-name {
+      display: flex; align-items: center; gap: 1rem;
+      margin-top: 2rem; padding-top: 1.5rem;
+      border-top: 1px solid var(--cream2);
+    }
+    .story-name-avatar {
+      width: 48px; height: 48px;
+      background: var(--leaf);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--cream);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+    }
+    .story-name-info strong {
+      display: block;
+      font-weight: 600;
+      color: var(--soil);
+    }
+    .story-name-info span {
+      font-size: 0.85rem;
+      color: var(--sage);
+    }
+
+    /* ── THREE PILLARS ───────────────────────────── */
+    .pillars { background: var(--soil); text-align: center; }
+    .pillars .section-title { color: var(--cream); }
+    .pillars .section-body { color: rgba(245,237,216,0.6); }
+    .pillars-grid {
+      max-width: 1100px; margin: 3.5rem auto 0;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .pillar-card {
+      background: rgba(245,237,216,0.04);
+      border: 1px solid rgba(245,237,216,0.1);
+      border-radius: 1.25rem;
+      padding: 2.5rem 2rem;
+      text-align: left;
+      transition: background 0.3s, border-color 0.3s, transform 0.3s;
+      cursor: default;
+    }
+    .pillar-card:hover {
+      background: rgba(245,237,216,0.08);
+      border-color: rgba(168,192,128,0.3);
+      transform: translateY(-4px);
+    }
+    .pillar-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+    }
+    .pillar-icon.green  { background: rgba(92,122,62,0.25); }
+    .pillar-icon.gold   { background: rgba(232,200,122,0.2); }
+    .pillar-icon.sage   { background: rgba(122,154,92,0.25); }
+    .pillar-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.35rem;
+      color: var(--cream);
+      margin-bottom: 0.75rem;
+    }
+    .pillar-card p {
+      color: rgba(245,237,216,0.55);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+    .pillar-card .pillar-tag {
+      display: inline-block;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fern);
+    }
+
+    /* ── PROGRESS ────────────────────────────────── */
+    .progress-section { background: var(--cream2); text-align: center; }
+    .progress-wrap {
+      max-width: 700px; margin: 3rem auto 0;
+    }
+    .progress-numbers {
+      display: flex; justify-content: space-between;
+      margin-bottom: 0.75rem;
+    }
+    .progress-planted {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--leaf);
+    }
+    .progress-goal {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.6rem;
+      color: var(--bark);
+      opacity: 0.5;
+    }
+    .progress-bar-outer {
+      height: 18px;
+      background: rgba(44,26,14,0.12);
+      border-radius: 100px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--leaf), var(--fern));
+      border-radius: 100px;
+      transition: width 2s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+    }
+    .progress-bar-inner::after {
+      content: '';
+      position: absolute; right: 0; top: 50%;
+      transform: translateY(-50%);
+      width: 22px; height: 22px;
+      background: var(--fern);
+      border-radius: 50%;
+      border: 3px solid var(--cream2);
+      box-shadow: 0 0 0 2px var(--leaf);
+    }
+    .progress-labels {
+      display: flex; justify-content: space-between;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--bark);
+      opacity: 0.6;
+    }
+    .progress-milestone {
+      margin-top: 2.5rem;
+      background: var(--soil);
+      border-radius: 1rem;
+      padding: 1.5rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      text-align: left;
+    }
+    .milestone-icon { font-size: 2rem; }
+    .milestone-text strong {
+      display: block;
+      color: var(--sun);
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+    }
+    .milestone-text span {
+      color: rgba(245,237,216,0.55);
+      font-size: 0.9rem;
+    }
+
+    /* ── SIGN-UP ─────────────────────────────────── */
+    .signup {
+      background: linear-gradient(160deg, var(--moss) 0%, var(--soil) 100%);
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .signup::before {
+      content: '🌱';
+      position: absolute;
+      font-size: 20rem;
+      opacity: 0.04;
+      top: -4rem; right: -4rem;
+      pointer-events: none;
+    }
+    .signup .section-title { color: var(--cream); }
+    .signup .section-body  { color: rgba(245,237,216,0.65); }
+    .signup-form {
+      max-width: 520px; margin: 2.5rem auto 0;
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .form-row { display: flex; gap: 1rem; }
+    .form-input {
+      width: 100%;
+      padding: 0.9rem 1.25rem;
+      background: rgba(245,237,216,0.1);
+      border: 1px solid rgba(245,237,216,0.2);
+      border-radius: 0.75rem;
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .form-input::placeholder { color: rgba(245,237,216,0.4); }
+    .form-input:focus {
+      border-color: var(--fern);
+      background: rgba(245,237,216,0.15);
+    }
+    .form-submit {
+      background: var(--sun);
+      color: var(--soil);
+      padding: 0.95rem 2rem;
+      border-radius: 0.75rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none; cursor: pointer;
+      transition: background 0.25s, transform 0.2s;
+    }
+    .form-submit:hover { background: var(--fern); color: var(--soil); transform: translateY(-2px); }
+    .form-note {
+      color: rgba(245,237,216,0.4);
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+    .form-success {
+      display: none;
+      background: rgba(168,192,128,0.15);
+      border: 1px solid rgba(168,192,128,0.4);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      color: var(--fern);
+      font-size: 0.95rem;
+    }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    footer {
+      background: var(--soil);
+      padding: 3.5rem 2rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
+      color: var(--cream);
+      margin-bottom: 0.4rem;
+    }
+    .footer-tagline {
+      color: rgba(245,237,216,0.45);
+      font-size: 0.85rem;
+      margin-bottom: 2rem;
+    }
+    .footer-links {
+      display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;
+      list-style: none; margin-bottom: 2rem;
+    }
+    .footer-links a {
+      color: rgba(245,237,216,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--fern); }
+    .footer-divider {
+      border: none; border-top: 1px solid rgba(245,237,216,0.08);
+      margin: 1.5rem 0 1.2rem;
+    }
+    .footer-bottom {
+      color: rgba(245,237,216,0.3);
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: var(--fern); text-decoration: none; }
+    .footer-domain {
+      display: inline-block;
+      background: rgba(168,192,128,0.1);
+      border: 1px solid rgba(168,192,128,0.2);
+      color: var(--fern);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.25rem; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: var(--soil);
+        align-items: center; justify-content: center;
+        gap: 2rem; font-size: 1.2rem;
+        z-index: 99;
+      }
+      .nav-hamburger { display: flex; z-index: 101; }
+
+      .stats-inner { grid-template-columns: 1fr; gap: 0.25rem; }
+      .stat-divider { width: 40px; height: 1px; }
+
+      .story-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .story-photo { aspect-ratio: 3/2; }
+      .story-badge { bottom: 0.5rem; right: 0.5rem; }
+
+      .pillars-grid { grid-template-columns: 1fr; }
+
+      .form-row { flex-direction: column; }
+
+      .progress-milestone { flex-direction: column; text-align: center; }
+    }
+
+    /* ── SCROLL ANIMATIONS ───────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ──────────────────────────────── -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">🌿</div>
+    <div class="nav-logo-text">
+      Million Roots
+      <span>Foundation</span>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#pillars">Mission</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#join" class="nav-cta">Join Us</a></li>
+  </ul>
+
+  <div class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ── HERO ────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-glow"></div>
+
+  <div class="hero-tag">#MissionMillion</div>
+
+  <h1>
+    One million trees.<br/>
+    One <em>father's</em> wish.
+  </h1>
+
+  <p class="hero-sub">
+    Shri G. Sivannarayana spent 35 years planting the seeds of agriculture across Andhra Pradesh.
+    On his retirement, we're honouring that legacy — one million native trees at a time.
+  </p>
+
+  <div class="hero-buttons">
+    <a href="#join" class="btn-primary">Join the Movement</a>
+    <a href="#story" class="btn-outline">Our Story</a>
+  </div>
+
+  <!-- Tree silhouette decoration -->
+  <div class="hero-trees">
+    <svg viewBox="0 0 1440 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;">
+      <!-- Tree silhouettes -->
+      <g fill="rgba(92,122,62,0.18)">
+        <polygon points="80,200 110,120 140,200"/>
+        <polygon points="95,200 120,90 145,200"/>
+        <polygon points="200,200 230,130 260,200"/>
+        <polygon points="215,200 240,100 265,200"/>
+        <polygon points="400,200 425,140 450,200"/>
+        <polygon points="550,200 580,110 610,200"/>
+        <polygon points="565,200 590,80 615,200"/>
+        <polygon points="700,200 730,125 760,200"/>
+        <polygon points="900,200 925,135 950,200"/>
+        <polygon points="1050,200 1080,115 1110,200"/>
+        <polygon points="1065,200 1090,85 1115,200"/>
+        <polygon points="1200,200 1225,130 1250,200"/>
+        <polygon points="1350,200 1375,120 1400,200"/>
+        <polygon points="1365,200 1390,90 1415,200"/>
+      </g>
+      <rect x="0" y="185" width="1440" height="15" fill="rgba(44,26,14,0.5)"/>
+    </svg>
+  </div>
+
+  <div class="hero-scroll">
+    <svg width="16" height="20" viewBox="0 0 16 20" fill="none"><rect x="1" y="1" width="14" height="18" rx="7" stroke="white" stroke-width="1.5"/><circle cx="8" cy="6" r="2" fill="white"/></svg>
+    Scroll
+  </div>
+</section>
+
+<!-- ── STATS BAR ──────────────────────────────── -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat-item fade-up">
+      <span class="stat-num" data-target="0" data-suffix="">0</span>
+      <span class="stat-label">Trees Planted</span>
+    </div>
+    <div class="stat-item fade-up">
+      <span class="stat-num" data-target="0" data-suffix="">0</span>
+      <span class="stat-label">Supporters</span>
+    </div>
+    <div class="stat-item fade-up">
+      <span class="stat-num" data-target="0" data-suffix="">0</span>
+      <span class="stat-label">Districts Reached</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── FATHER'S STORY ─────────────────────────── -->
+<section class="story" id="story">
+  <div class="story-inner">
+    <div class="story-photo-wrap fade-up">
+      <div class="story-photo">
+        <div class="story-photo-icon">🌾</div>
+        <p class="story-photo-hint">Photo of Shri G. Sivannarayana<br/>coming soon</p>
+      </div>
+      <div class="story-badge">
+        <span class="story-badge-num">35</span>
+        <span class="story-badge-text">Years of Service</span>
+      </div>
+    </div>
+
+    <div class="story-content fade-up">
+      <span class="section-tag">The Story Behind the Mission</span>
+      <h2 class="section-title" style="text-align:left; margin:0 0 1rem;">A farmer's son who fed a nation</h2>
+
+      <blockquote>
+        "Before I retire, I want to plant one lakh trees."
+      </blockquote>
+
+      <p>
+        Shri G. Sivannarayana dedicated 35 years of his life as Project Director at ATMA — the Agricultural Technology Management Agency — transforming farming communities across Andhra Pradesh.
+      </p>
+      <p>
+        With an MSc in Agriculture and a lifetime of quiet service, his retirement wish was simple: to give back to the land that gave so much to so many.
+      </p>
+      <p>
+        On July 30, 2026 — his retirement day — we're not just fulfilling that wish. We're scaling it tenfold. <strong>One million native trees</strong>, planted in his honour.
+      </p>
+
+      <div class="story-name">
+        <div class="story-name-avatar">GS</div>
+        <div class="story-name-info">
+          <strong>Shri G. Sivannarayana</strong>
+          <span>Project Director, ATMA — MSc Agriculture · Retiring July 30, 2026</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── THREE PILLARS ──────────────────────────── -->
+<section class="pillars" id="pillars">
+  <span class="section-tag" style="background:rgba(168,192,128,0.12); border-color:rgba(168,192,128,0.25); color:var(--fern);">What We Do</span>
+  <h2 class="section-title">Three roots of one mission</h2>
+  <p class="section-body">Every tree we plant, every farmer we train, every child we inspire — all in service of a greener, more resilient Andhra Pradesh.</p>
+
+  <div class="pillars-grid">
+    <div class="pillar-card fade-up">
+      <div class="pillar-icon green">🌳</div>
+      <h3>Afforestation</h3>
+      <p>Planting one million native trees across Andhra Pradesh — from Nellore to the Northern districts — restoring biodiversity and sequestering carbon for generations to come.</p>
+      <span class="pillar-tag">1,000,000 trees · Native species</span>
+    </div>
+
+    <div class="pillar-card fade-up">
+      <div class="pillar-icon gold">🌱</div>
+      <h3>Organic Farming</h3>
+      <p>A demonstration farm near Nellore — growing organic produce, running a plant nursery, and proving that sustainable agriculture is both possible and profitable.</p>
+      <span class="pillar-tag">Demo farm · Nellore, AP</span>
+    </div>
+
+    <div class="pillar-card fade-up">
+      <div class="pillar-icon sage">🤝</div>
+      <h3>Community</h3>
+      <p>Training farmers, partnering with corporates on CSR tree-planting drives, and taking the mission into schools — growing the next generation of environmental stewards.</p>
+      <span class="pillar-tag">Volunteers · CSR · Schools</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROGRESS ───────────────────────────────── -->
+<section class="progress-section" id="progress">
+  <span class="section-tag">Live Tracker</span>
+  <h2 class="section-title">Every tree counts</h2>
+  <p class="section-body">Watch the counter grow as we plant, one root at a time, toward our goal of one million trees by 2028.</p>
+
+  <div class="progress-wrap fade-up">
+    <div class="progress-numbers">
+      <span class="progress-planted">0 planted</span>
+      <span class="progress-goal">1,000,000 goal</span>
+    </div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progressBar"></div>
+    </div>
+    <div class="progress-labels">
+      <span>0%</span>
+      <span>We're just getting started 🌱</span>
+      <span>100%</span>
+    </div>
+
+    <div class="progress-milestone">
+      <span class="milestone-icon">📅</span>
+      <div class="milestone-text">
+        <strong>Launch Date: July 30, 2026</strong>
+        <span>Father's retirement day — the day #MissionMillion officially begins.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SIGN-UP ────────────────────────────────── -->
+<section class="signup" id="join">
+  <span class="section-tag" style="background:rgba(168,192,128,0.12); border-color:rgba(168,192,128,0.3); color:var(--fern);">Be Part of History</span>
+  <h2 class="section-title">Be an early supporter</h2>
+  <p class="section-body">Sign up to be notified when we launch on July 30, 2026 — and be the first to plant a tree in Andhra Pradesh.</p>
+
+  <form
+    class="signup-form"
+    id="signupForm"
+    action="https://formspree.io/f/YOUR_FORM_ID"
+    method="POST"
+  >
+    <div class="form-row">
+      <input class="form-input" type="text" name="name" placeholder="Your name" required />
+      <input class="form-input" type="email" name="email" placeholder="Your email" required />
+    </div>
+    <input class="form-input" type="text" name="location" placeholder="Your city / district (optional)" />
+    <button class="form-submit" type="submit">Join #MissionMillion 🌱</button>
+    <p class="form-note">No spam, ever. Just updates from the forest floor.</p>
+  </form>
+
+  <div class="form-success" id="formSuccess">
+    🌿 Thank you for joining! We'll be in touch when we launch on July 30, 2026.
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────── -->
+<footer>
+  <div class="footer-logo">Million Roots Foundation</div>
+  <p class="footer-tagline">Afforestation · Organic Farming · Community</p>
+  <div class="footer-domain">millionroots.in</div>
+
+  <ul class="footer-links">
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#pillars">Mission</a></li>
+    <li><a href="#progress">Progress</a></li>
+    <li><a href="#join">Join Us</a></li>
+    <li><a href="mailto:hello@millionroots.in">Contact</a></li>
+  </ul>
+
+  <hr class="footer-divider" />
+
+  <p class="footer-bottom">
+    © 2026 Million Roots Foundation · Section 8 Company Registration in Progress ·
+    <a href="mailto:hello@millionroots.in">hello@millionroots.in</a>
+  </p>
+</footer>
+
+<!-- ── JAVASCRIPT ─────────────────────────────── -->
+<script>
+  // ── Mobile menu
+  function toggleMenu() {
+    const links = document.getElementById('navLinks');
+    links.classList.toggle('open');
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.addEventListener('click', () => {
+      document.getElementById('navLinks').classList.remove('open');
+    });
+  });
+
+  // ── Scroll animations (Intersection Observer)
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // ── Counter animation
+  function animateCounter(el, target, duration = 1800) {
+    let start = 0;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(eased * target).toLocaleString();
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const target = parseInt(e.target.dataset.target);
+        if (target > 0) animateCounter(e.target, target);
+        counterObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-num').forEach(el => counterObserver.observe(el));
+
+  // ── Progress bar animation
+  const progressObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        // Set to actual percentage — update this number as trees are planted
+        const planted = 0;
+        const goal = 1000000;
+        const pct = Math.max((planted / goal) * 100, 0.3); // minimum 0.3% so bar is visible
+        document.getElementById('progressBar').style.width = pct + '%';
+        progressObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const bar = document.getElementById('progressBar');
+  if (bar) progressObserver.observe(bar);
+
+  // ── Form submission
+  const form = document.getElementById('signupForm');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+      } else {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Try again';
+      btn.disabled = false;
+    }
+  });
+
+  // ── Navbar shrink on scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 60) {
+      nav.style.padding = '0.6rem 2.5rem';
+    } else {
+      nav.style.padding = '1rem 2.5rem';
+    }
+  });
+</script>
+
+</body>
+</html>
