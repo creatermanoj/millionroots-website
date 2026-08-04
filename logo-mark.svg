@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200" width="100" height="200" role="img">
+  <title>Million Roots Foundation — logo mark</title>
+  <g stroke="#2C1A0E" stroke-width="3.2" stroke-linecap="round" fill="none">
+    <!-- Trunk -->
+    <line x1="50" y1="82" x2="50" y2="138"/>
+    <!-- Earth line -->
+    <line x1="20" y1="110" x2="80" y2="110" stroke-width="1.2" opacity="0.3"/>
+    <!-- Branches -->
+    <path d="M50,97 Q24,76 11,61"/>
+    <path d="M50,90 Q37,66 30,52"/>
+    <path d="M50,90 Q63,66 70,52"/>
+    <path d="M50,97 Q76,76 89,61"/>
+    <!-- Roots -->
+    <path d="M50,123 Q24,144 11,159"/>
+    <path d="M50,130 Q37,154 30,168"/>
+    <path d="M50,130 Q63,154 70,168"/>
+    <path d="M50,123 Q76,144 89,159"/>
+  </g>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" width="320" height="200" role="img">
+  <title>Million Roots Foundation — primary logo, light version</title>
+  <!-- Background -->
+  <rect width="320" height="200" fill="#F5EDD8" rx="12"/>
+  <!-- Icon mark centered at x=80 -->
+  <g transform="translate(30, 20)" stroke="#2C1A0E" stroke-width="3.2" stroke-linecap="round" fill="none">
+    <line x1="50" y1="62" x2="50" y2="118"/>
+    <line x1="20" y1="90" x2="80" y2="90" stroke-width="1.2" opacity="0.3"/>
+    <path d="M50,77 Q24,56 11,41"/>
+    <path d="M50,70 Q37,46 30,32"/>
+    <path d="M50,70 Q63,46 70,32"/>
+    <path d="M50,77 Q76,56 89,41"/>
+    <path d="M50,103 Q24,124 11,139"/>
+    <path d="M50,110 Q37,134 30,148"/>
+    <path d="M50,110 Q63,134 70,148"/>
+    <path d="M50,103 Q76,124 89,139"/>
+  </g>
+  <!-- Wordmark -->
+  <text x="160" y="88" font-family="Georgia,'Times New Roman',serif" font-size="26" fill="#2C1A0E" text-anchor="middle" letter-spacing="0.5">Million Roots</text>
+  <text x="160" y="110" font-family="Arial,Helvetica,sans-serif" font-size="10" fill="#5C7A3E" text-anchor="middle" letter-spacing="3" font-weight="600">FOUNDATION</text>
+</svg>
